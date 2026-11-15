@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f4">
+  <title>FocusFlow — make space for focus</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="header"><a class="wordmark" href="#" aria-label="FocusFlow home"><span class="logo-mark">f</span>focusflow</a><div class="header-right"><span class="today" id="todayLabel"></span><button class="settings-button" id="settingsOpen" aria-label="Open timer settings">⚙ <span>Settings</span></button></div></header>
+  <main class="layout">
+    <section class="focus-column" aria-labelledby="greeting">
+      <div class="intro"><p class="eyebrow">YOUR PERSONAL FOCUS SPACE</p><h1 id="greeting">Make space<br>for <em>focus.</em></h1><p class="subhead">One thing at a time. You’re doing great.</p></div>
+      <div class="timer-card">
+        <div class="mode-tabs" role="tablist" aria-label="Timer mode"><button class="mode-tab active" role="tab" aria-selected="true" data-mode="focus">Focus</button><button class="mode-tab" role="tab" aria-selected="false" data-mode="short">Short break</button><button class="mode-tab" role="tab" aria-selected="false" data-mode="long">Long break</button></div>
+        <div class="timer-face"><svg class="progress-ring" viewBox="0 0 260 260" aria-hidden="true"><circle class="ring-track" cx="130" cy="130" r="116"></circle><circle class="ring-progress" id="ringProgress" cx="130" cy="130" r="116"></circle></svg><div class="timer-readout"><span id="timeDisplay" aria-live="off">25:00</span><small id="modeLabel">TIME TO FOCUS</small></div></div>
+        <div class="timer-controls"><button id="startButton" class="start-button"><span id="startIcon">▶</span> <span id="startText">Start focus</span></button><button class="icon-button" id="resetButton" aria-label="Reset timer" title="Reset">↺</button><button class="icon-button" id="skipButton" aria-label="Skip session" title="Skip">↠</button></div>
+        <p class="session-note" id="sessionNote">A little progress adds up.</p>
+      </div>
+      <div class="focus-quote"><span class="quote-mark">“</span><p>It always seems impossible until it’s done.</p><small>— Nelson Mandela</small></div>
+    </section>
+    <aside class="task-column" aria-label="Your focus tasks">
+      <div class="task-heading"><div><p class="eyebrow">TODAY’S PLAN</p><h2>Your tasks <span class="task-count" id="taskCount">0</span></h2></div><span class="date-chip" id="dateChip">TODAY</span></div>
+      <form id="taskForm" class="task-form"><label class="sr-only" for="taskInput">New task</label><input id="taskInput" maxlength="100" placeholder="What needs your focus?" autocomplete="off" required><button aria-label="Add task">+</button></form>
+      <ul class="task-list" id="taskList" aria-live="polite"></ul>
+      <div class="task-empty" id="taskEmpty"><span class="empty-icon">✳</span><strong>A clear desk, a clear mind.</strong><p>Add a task and give it your full attention.</p></div>
+      <div class="progress-card"><div class="progress-copy"><span>Daily progress</span><strong id="progressText">0 of 0 done</strong></div><div class="progress-bar"><span id="progressBar"></span></div><p><span>✦</span> Every completed task is a win.</p></div>
+      <div class="sessions-card"><div class="session-icon">◷</div><div><strong id="sessionCount">0</strong><span>focus sessions today</span></div><div class="session-dots" id="sessionDots" aria-label="Completed focus sessions"></div></div>
+      <button id="clearDone" class="clear-button" hidden>Clear completed tasks</button>
+    </aside>
+  </main>
+  <footer><span>FocusFlow</span><span>Built for calmer, more intentional work.</span></footer>
+  <dialog id="settingsDialog" class="settings-dialog"><form method="dialog" id="settingsForm"><div class="dialog-head"><div><p class="eyebrow">MAKE IT YOURS</p><h2>Timer settings</h2></div><button class="close-button" aria-label="Close settings">×</button></div><label>Focus session <span><input type="number" id="focusMinutes" min="1" max="90"> min</span></label><label>Short break <span><input type="number" id="shortMinutes" min="1" max="30"> min</span></label><label>Long break <span><input type="number" id="longMinutes" min="1" max="60"> min</span></label><button class="save-button" id="saveSettings" value="save">Save settings</button></form></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
