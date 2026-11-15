@@ -13,6 +13,8 @@ A polished, distraction-light Pomodoro timer and task list built with plain HTML
 
 ## Run
 
+> **Try it live:** <https://joshua12312617.github.io/focusflow/>
+
 Open `index.html` directly in a modern browser, or run a local static server:
 
 ```sh
